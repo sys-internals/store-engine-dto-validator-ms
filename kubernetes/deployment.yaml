@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-engine-dto-validator-ms-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: store-engine-dto-validator-ms
+  template:
+    metadata:
+      labels:
+        app: store-engine-dto-validator-ms
+    spec:
+      containers:
+        - name: store-engine-dto-validator-ms-container
+          image: store-engine-dto-validator-ms:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3002
+          env:
+            - name: NODE_ENV
+              value: "production"

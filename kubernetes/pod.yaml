@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: store-engine-dto-validator-ms-pod
+  labels:
+    app: store-engine-dto-validator-ms
+spec:
+  containers:
+  - name: store-engine-dto-validator-ms-container
+    image: store-engine-dto-validator-ms:latest
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 3002
+    env:
+    - name: NODE_ENV
+      value: "production"
