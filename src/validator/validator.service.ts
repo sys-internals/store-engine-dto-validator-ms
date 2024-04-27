@@ -19,13 +19,20 @@ export class ValidatorService {
 
     private validateProductCreationPayload(payload: any) {
         this.logger.debug(payload, 'Product validation');
-        if (payload.product?.enterprise?.name) {
-            this.logger.debug('Enterprise name is valid.');
+        if (payload.title) {
+            this.logger.debug('Product on sale title is valid');
             return { isValid: true };
         } else {
-            this.logger.debug('Enterprise name is invalid.');
+            this.logger.debug('Product on sale title is invalid');
             return { isValid: false };
         }
+        // if (payload.product?.enterprise?.name) {
+        //     this.logger.debug('Enterprise name is valid.');
+        //     return { isValid: true };
+        // } else {
+        //     this.logger.debug('Enterprise name is invalid.');
+        //     return { isValid: false };
+        // }
     }
 
     private validateProductToSaleCreationPayload(payload: any) {
